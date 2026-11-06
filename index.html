@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id" style="overflow-x: hidden;">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BUM Desa Amanah Sembawa</title>
+  <meta name="description"
+    content="BUM Desa Amanah Sembawa: armada sampah, PAM desa, PPOB, peternakan, dan pertanian untuk kemajuan desa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body style="overflow-x: hidden; width: 100%; max-width: 100vw;"></body>
+
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#beranda" class="brand">
+        <span class="brand-dot"></span>
+        BUM Desa <b>Amanah Sembawa</b>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#statistik">Dampak</a>
+        <a href="#galeri">Kegiatan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <a href="#kontak" class="btn btn-neon btn-sm nav-cta">Hubungi Kami</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <span class="chip">✨ Badan Usaha Milik Desa</span>
+          <h1>Desa Maju,<br /><span class="gradient-text">Ekonomi Bangkit</span><br />Bareng BUM Desa.</h1>
+          <p>
+            BUM Desa Amanah Sembawa hadir lewat lima layanan: kebersihan, air bersih,
+            pembayaran digital, peternakan, dan pertanian. Semua untuk warga, dikelola bersama.
+          </p>
+          <div class="hero-actions">
+            <a href="#layanan" class="btn btn-neon">Lihat Layanan</a>
+            <a href="#tentang" class="btn btn-ghost">Kenali Kami →</a>
+          </div>
+          <div class="hero-mini">
+            <div><strong class="counter" data-target="5">0</strong><span>Unit Layanan</span></div>
+            <div><strong class="counter" data-target="3400" data-suffix="+">0</strong><span>Warga Terlayani</span></div>
+            <div><strong class="counter" data-target="24" data-suffix="/7">0</strong><span>Layanan Digital</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orb"></div>
+          <div class="float-card fc-1"><span>🚛</span>
+            <div><b>Armada Sampah</b><small>Jadwal rutin</small></div>
+          </div>
+          <div class="float-card fc-2"><span>💧</span>
+            <div><b>PAM Desa</b><small>Air bersih</small></div>
+          </div>
+          <div class="float-card fc-3"><span>📲</span>
+            <div><b>PPOB</b><small>Bayar praktis</small></div>
+          </div>
+          <div class="hero-badge">BUM Desa<br /> Amanah Sembawa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="section" id="tentang">
+      <div class="container about-grid">
+        <div class="about-card reveal">
+          <div class="about-img">
+            <img src="images/logo.png" alt="Logo BUMDes Sembawa">
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="chip">Tentang Kami</span>
+          <h2>Dikelola warga, <span class="gradient-text">untuk warga</span></h2>
+          <p class="lead">
+            BUM Desa Amanah Sembawa adalah lembaga usaha desa yang menggerakkan potensi lokal
+            menjadi layanan nyata dan pendapatan yang kembali ke masyarakat.
+          </p>
+          <ul class="check-list">
+            <li><b>Visi:</b> Meningkatkan perekonomian dan kesejahteraan masyarakat desa melalui pengembangan usaha
+              melalui
+              pelayanan jasa dan perdagangan dari potensi menuju desa yang lebih maju dan mandiri.</li>
+            <li><b>Misi:</b> Membangun kerjasama dengan berbagai pihak,Memberikan pelayanan kepada masyarakat di bidang
+              usaha dan jasa,Menggali potensi ekonomi masyarakat untuk berkembang.</li>
+            <li><b>Nilai:</b> Gotong royong, transparan, inovatif, dan amanah.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section class="section section-alt" id="layanan">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="chip">Jenis Pelayanan</span>
+          <h2>5 Layanan <span class="gradient-text">Unggulan</span></h2>
+          <p>Klik kartu untuk melihat detail tiap layanan.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal" data-service="sampah">
+            <div class="s-icon">🚛</div>
+            <h3>Armada Sampah</h3>
+            <p>Pengangkutan sampah rumah tangga terjadwal agar lingkungan desa tetap bersih dan sehat.</p>
+            <button class="s-link">Lihat detail →</button>
+          </article>
+
+          <article class="service-card reveal" data-service="pam">
+            <div class="s-icon">💧</div>
+            <h3>PAM Desa</h3>
+            <p>Penyaluran air bersih untuk warga dengan tarif terjangkau dan pelayanan yang tertib.</p>
+            <button class="s-link">Lihat detail →</button>
+          </article>
+
+          <article class="service-card reveal" data-service="ppob">
+            <div class="s-icon">📲</div>
+            <h3>PPOB</h3>
+            <p>Bayar listrik, pulsa, paket data, BPJS,Pajak kendaraan Bermotor(E-Samsat) ,PBB, dan tagihan lain langsung
+              di desa.</p>
+            <button class="s-link">Lihat detail →</button>
+          </article>
+
+          <article class="service-card reveal" data-service="peternakan">
+            <div class="s-icon">🐄</div>
+            <h3>Peternakan</h3>
+            <p>Pengembangan usaha ternak desa: pembibitan, penggemukan, dan pemasaran hasil ternak.</p>
+            <button class="s-link">Lihat detail →</button>
+          </article>
+
+          <article class="service-card reveal" data-service="pertanian">
+            <div class="s-icon">🌾</div>
+            <h3>Pertanian</h3>
+            <p>Merupakan program ketahanan pangan mulai Tahun 2025 sesuai dengan Permendes. no.3 tahun 2025.</p>
+            <button class="s-link">Lihat detail →</button>
+          </article>
+
+          <article class="service-card cta-card reveal">
+            <h3>Butuh info lebih?</h3>
+            <p>Tim kami siap membantu kapan saja.</p>
+            <a href="#kontak" class="btn btn-white">Hubungi Kami</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section class="section" id="statistik">
+      <div class="container">
+        <div class="stats reveal">
+          <div class="stat"><strong class="counter" data-target="969" data-suffix="+">0</strong><span>Rumah per oktober
+              2026
+              Terlayani</span></div>
+          <div class="stat"><strong class="counter" data-target="5">0</strong><span>Unit Usaha</span></div>
+          <div class="stat"><strong class="counter" data-target="30" data-suffix="+">0</strong><span>Tenaga Kerja
+              Mitra/Lokal</span></div>
+          <div class="stat"><strong class="counter" data-target="100" data-suffix="%">0</strong><span>Dikelola
+              Transparan</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section class="section section-alt" id="galeri">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="chip">Kegiatan</span>
+          <h2>Jejak <span class="gradient-text">Aktivitas</span></h2>
+          <p>Galeri foto kegiatan asli desa kami.</p>
+        </div>
+        <div class="gallery">
+          <div class="g-item g-big reveal">
+            <img src="images/ppob.jpg" alt="Pengangkutan sampah">
+            <small>Payment Point Online Bank</small>
+          </div>
+
+          <div class="g-item reveal">
+            <img src="images/air-bersih.jpg" alt="Instalasi air">
+            <small>Instalasi air</small>
+          </div>
+
+          <div class="g-item reveal">
+            <img src="images/peternakan.jpg" alt="Kandang ternak">
+            <small>Kandang ternak</small>
+          </div>
+
+          <div class="g-item reveal">
+            <img src="images/pertanian.jpg" alt="Kolam ikan">
+            <small>Pertanian</small>
+          </div>
+
+          <div class="g-item reveal">
+            <img src="images/sampah.jpg" alt="Loket PPOB">
+            <small>Armada Sampah</small>
+          </div>
+          <div class="g-item reveal g-karyawan">
+            <img src="images/karyawan.jpg" alt="Tim Karyawan 1">
+            <small>Tim Pengelola </small>
+          </div>
+
+          <div class="g-item reveal g-karyawan">
+            <img src="images/karyawan2.jpg" alt="Tim Karyawan 2 ">
+            <small>Tim Pengelola </small>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section" id="kontak">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <span class="chip">Kontak</span>
+          <h2>Yuk, <span class="gradient-text">terhubung!</span></h2>
+          <p class="lead">Punya pertanyaan atau ingin berlangganan layanan? Kirim pesan, kami balas secepatnya.</p>
+          <ul class="contact-list">
+            <li>📍 Kantor BUM Desa, Balai Desa Sembawa</li>
+            <li>✉️ bumdesaamanahsembawa@gmail.com</li>
+            <li>📷 https://www.instagram.com/bumdesa_amanahsembawa</li>
+            <li>▶️ https://youtube.com/@bumdesaamanahsembawa2020</li>
+            <li>🕗 Senin–Kamis, 08.00–13.30 WIB</li>
+            <li>🕗 Jum'at, 08.00–11.30 WIB</li>
+          </ul>
+        </div>
+        <form class="form reveal" id="contactForm">
+          <label>Nama
+            <input type="text" id="nama" placeholder="Nama lengkap" required />
+          </label>
+          <label>Layanan
+            <select id="layananPilih">
+              <option>Armada Sampah</option>
+              <option>PAM Desa</option>
+              <option>PPOB</option>
+              <option>Peternakan</option>
+              <option>Pertanian</option>
+            </select>
+          </label>
+          <label>Pesan
+            <textarea id="pesan" rows="4" placeholder="Tulis pesanmu..." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-neon">Kirim via Gmail</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> BUMDes Desa Sembawa. Semua hak dilindungi.</span>
+      <a href="#beranda">Kembali ke atas ↑</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">✕</button>
+      <div class="modal-icon" id="mIcon"></div>
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <ul id="mList"></ul>
+      <a href="#kontak" class="btn btn-neon" id="mCta">Pesan Layanan</a>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
