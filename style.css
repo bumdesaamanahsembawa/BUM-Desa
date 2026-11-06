@@ -269,8 +269,11 @@ ul {
 }
 
 h2 {
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  /* Diperkecil menjadi 1.6rem dan 5vw */
   margin: 14px 0 14px;
+  line-height: 1.3;
+  /* Tambahkan ini agar jarak baris saat turun ke bawah tidak saling menabrak */
 }
 
 .lead {
@@ -712,6 +715,13 @@ h2 {
   display: grid;
   gap: 12px;
   font-weight: 600;
+}
+
+.break-url {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .form {
