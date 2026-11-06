@@ -987,3 +987,21 @@ body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
 }
+/* --- PERBAIKAN TAMPILAN KOTAK LOGO --- */
+
+/* Mengubah kotak biru menjadi putih bersih dan elegan */
+.about-img {
+  background: #ffffff !important;
+  box-shadow: 0 15px 40px rgba(47, 107, 255, 0.08) !important;
+  border: 1px solid rgba(47, 107, 255, 0.1) !important;
+}
+
+/* Menghilangkan garis putus-putus di dalam kotak */
+.about-img::before {
+  display: none !important;
+}
+
+/* Memastikan gambar logo memenuhi kotak putih dengan rapi */
+.about-img img {
+  padding: 10px !important; /* Mengurangi jarak tepi agar logo lebih besar */
+}
