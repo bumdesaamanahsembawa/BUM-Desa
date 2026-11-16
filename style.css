@@ -684,22 +684,29 @@ h2 {
   background: linear-gradient(135deg, #e6f7ff, #dfe8ff);
 }
 
-.g-karyawan {
-  grid-column: span 2;
-  /* Melebarkan ke samping (2 kolom) */
-  grid-row: span 2;
-  /* Memanjangkan ke bawah (2 baris), sama seperti g-big */
+.gallery-karyawan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Membagi menjadi 2 kolom sama besar */
+  gap: 20px;
+  /* Jarak antara kedua foto */
+  max-width: 900px;
+  /* Lebar maksimal agar tidak terlalu memanjang di layar besar */
+  margin: 0 auto;
+  /* Posisi di tengah */
 }
 
 /* Penyesuaian Gambar */
-.gallery .g-item img {
-  width: 100%;
-  height: calc(100% - 20px);
-  /* Tinggi gambar 100% dikurangi 35px untuk ruang teks */
-  object-fit: cover;
-  display: block;
-  cursor: pointer;
-  /* Memberikan efek kursor jari agar user tahu ini bisa diklik */
+.gallery-karyawan .g-item {
+  /* Mengatur ulang tinggi agar proporsional */
+  min-height: 250px;
+}
+
+@media (max-width: 560px) {
+  .gallery-karyawan {
+    grid-template-columns: 1fr;
+    /* 1 kolom penuh di layar HP */
+  }
 }
 
 /* contact */
@@ -987,21 +994,217 @@ body {
   overflow-x: hidden !important;
   max-width: 100vw !important;
 }
-/* --- PERBAIKAN TAMPILAN KOTAK LOGO --- */
 
-/* Mengubah kotak biru menjadi putih bersih dan elegan */
-.about-img {
-  background: #ffffff !important;
-  box-shadow: 0 15px 40px rgba(47, 107, 255, 0.08) !important;
-  border: 1px solid rgba(47, 107, 255, 0.1) !important;
+/* --- TAMPILAN 2 FOTO KARYAWAN BERSEBELAHAN --- */
+.gallery-karyawan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Membagi menjadi 2 kolom sama besar */
+  gap: 20px;
+  /* Jarak antara kedua foto */
+  max-width: 900px;
+  /* Lebar maksimal agar tidak terlalu memanjang di layar besar */
+  margin: 0 auto;
+  /* Posisi di tengah */
 }
 
-/* Menghilangkan garis putus-putus di dalam kotak */
-.about-img::before {
-  display: none !important;
+/* Pastikan item galeri bertindak sebagai kolom flex agar isinya bisa dikontrol */
+.gallery-karyawan .g-item {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  /* Tentukan tinggi tetap yang seragam untuk kedua kotak */
+  overflow: hidden;
+  /* Sembunyikan bagian gambar yang melebihi kotak */
+  border-radius: 22px;
+  /* Sesuaikan dengan border radius desain Anda */
+  padding-bottom: 0;
+  /* Hapus padding bawah jika ada */
 }
 
-/* Memastikan gambar logo memenuhi kotak putih dengan rapi */
-.about-img img {
-  padding: 10px !important; /* Mengurangi jarak tepi agar logo lebih besar */
+/* Memaksa gambar untuk mengisi ruang yang tersedia */
+.gallery-karyawan .g-item img {
+  width: 100%;
+  flex-grow: 1;
+  /* Gambar akan melar memenuhi sisa ruang di atas teks */
+  height: 0;
+  /* Penting saat menggunakan flex-grow agar object-fit bekerja baik */
+  object-fit: cover;
+  /* Memotong gambar agar pas tanpa mengubah proporsi (tidak gepeng) */
+  object-position: center;
+  /* Fokus pemotongan di tengah gambar */
+}
+
+/* Mengatur area teks di bawah gambar */
+.gallery-karyawan .g-item small {
+  padding: 15px;
+  /* Beri ruang di sekitar teks */
+  text-align: center;
+  background-color: #fff;
+  /* Pastikan latar teks putih */
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Responsif untuk layar HP: ubah menjadi atas-bawah */
+@media (max-width: 560px) {
+  .gallery-karyawan {
+    grid-template-columns: 1fr;
+    /* 1 kolom penuh di layar HP */
+  }
+
+  .gallery-karyawan .g-item {
+    height: 300px;
+    /* Sedikit lebih pendek di layar HP */
+  }
+}
+
+/* =========================================
+   TAMPILAN HALAMAN DETAIL LAYANAN BARU
+   ========================================= */
+
+.detail-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Kotak Gambar Detail */
+.detail-visual {
+  position: relative;
+}
+
+.detail-image-box {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(47, 107, 255, 0.15);
+  border: 1px solid var(--border);
+}
+
+.detail-image-box img {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.detail-image-box:hover img {
+  transform: scale(1.05);
+  /* Efek zoom saat kursor diarahkan ke gambar */
+}
+
+/* Lencana/Badge Melayang di Gambar */
+.floating-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--neon-2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Kartu Informasi di Kolom Teks */
+.detail-info-card {
+  background: var(--bg-alt);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsif: Berubah menjadi 1 kolom (atas-bawah) di layar kecil */
+@media (max-width: 960px) {
+  .detail-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .detail-image-box img {
+    min-height: 300px;
+  }
+}
+
+/* =========================================
+   KARTU TIM PENGELOLA (HALAMAN DETAIL)
+   ========================================= */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.team-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(47, 107, 255, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow);
+  border-color: var(--neon);
+}
+
+.team-card img {
+  width: 130px;
+  /* Diperbesar dari 90px */
+  height: 130px;
+  /* Diperbesar dari 90px */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 18px;
+  /* Sedikit ditambah agar jarak dengan teks lebih lega */
+  border: 4px solid var(--bg-alt);
+  /* Ketebalan border juga ditambah sedikit agar proporsional */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  /* Memastikan foto tetap berada di tengah */
+}
+
+.team-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.team-card p {
+  color: var(--neon-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* =========================================
+   GALERI DOKUMENTASI PORTRAIT
+   ========================================= */
+.gallery-portrait {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  grid-auto-rows: 380px !important;
+  /* Memaksa tinggi kotak menjadi 380px (portrait) */
+}
+
+/* Penyesuaian untuk layar HP agar tetap rapi */
+@media (max-width: 560px) {
+  .gallery-portrait {
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* Dibagi 2 kolom sejajar di HP */
+    grid-auto-rows: 260px !important;
+    /* Tinggi disesuaikan untuk layar kecil */
+    gap: 12px;
+  }
 }

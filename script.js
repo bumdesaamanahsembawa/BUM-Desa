@@ -106,36 +106,6 @@ const counterObserver = new IntersectionObserver(
 );
 document.querySelectorAll(".counter").forEach((c) => counterObserver.observe(c));
 
-// ===== Modal layanan =====
-function openModal(key) {
-  const s = services[key];
-  if (!s) return;
-
-  // Jika kamu mau pakai gambar sebagai ikon (seperti pertanian.png), 
-  // ganti textContent menjadi innerHTML, tapi pastikan yang dikirim dari objek services adalah tag <img>
-  document.getElementById("mIcon").textContent = s.icon;
-  document.getElementById("mTitle").textContent = s.title;
-  document.getElementById("mDesc").textContent = s.desc;
-  document.getElementById("mList").innerHTML = s.list.map((i) => `<li>${i}</li>`).join("");
-  modal.dataset.service = s.title;
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-}
-function closeModal() {
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-}
-document.querySelectorAll(".service-card[data-service]").forEach((card) =>
-  card.addEventListener("click", () => openModal(card.dataset.service))
-);
-document.getElementById("modalClose").addEventListener("click", closeModal);
-modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-document.getElementById("mCta").addEventListener("click", () => {
-  const select = document.getElementById("layananPilih");
-  [...select.options].forEach((o) => { if (o.text === modal.dataset.service) select.value = o.text; });
-  closeModal();
-});
 
 // ===== Form -> Email (Langsung ke Web Gmail) =====
 document.getElementById("contactForm").addEventListener("submit", (e) => {
