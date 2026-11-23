@@ -112,6 +112,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const nama = document.getElementById("nama").value.trim();
+  const alamat = document.getElementById("alamat").value.trim();
   const layanan = document.getElementById("layananPilih").value;
   const pesan = document.getElementById("pesan").value.trim();
 
@@ -120,7 +121,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
 
   // Format subject dan isi pesan
   const subject = encodeURIComponent(`Pesan Layanan dari: ${nama} - ${layanan}`);
-  const body = encodeURIComponent(`Nama Lengkap: ${nama}\nLayanan yang Dipilih: ${layanan}\n\nPesan:\n${pesan}`);
+  const body = encodeURIComponent(`Nama Lengkap: ${nama}\nAlamat: ${alamat}\nLayanan yang Dipilih: ${layanan}\n\nPesan:\n${pesan}`);
 
   // Link khusus untuk langsung membuka halaman "Compose" (Tulis Pesan) di Gmail
   const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTujuan}&su=${subject}&body=${body}`;
