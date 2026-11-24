@@ -50,7 +50,8 @@ function onScroll() {
   // highlight menu aktif
   let current = "beranda";
   document.querySelectorAll("main section[id]").forEach((sec) => {
-    if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+    const sectionTop = sec.getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY >= sectionTop - 140) current = sec.id;
   });
   navLinks.querySelectorAll("a").forEach((a) => {
     a.classList.toggle("active", a.getAttribute("href") === "#" + current);
@@ -104,28 +105,56 @@ const counterObserver = new IntersectionObserver(
   },
   { threshold: 0.5 }
 );
+// ... (kode counter animasi di atasnya biarkan tetap ada)
 document.querySelectorAll(".counter").forEach((c) => counterObserver.observe(c));
 
 
-// ===== Form -> Email (Langsung ke Web Gmail) =====
+// ===== Form -> Simpan ke Google Spreadsheet & Buka Web Gmail =====
+const scriptURL = "https://script.google.com/macros/s/AKfycby6qO2MPcEMUv75bUeXCi-PvXD03Biro4sLJcab1-0I1R3MUeAYOddpWIRCaN-suCrgHQ/exec";
+
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const form = e.target;
+  const btnSubmit = form.querySelector('button[type="submit"]');
+  const teksAsliBtn = btnSubmit.textContent;
+
   const nama = document.getElementById("nama").value.trim();
   const alamat = document.getElementById("alamat").value.trim();
+  const handphone = document.getElementById("handphone").value.trim();
   const layanan = document.getElementById("layananPilih").value;
   const pesan = document.getElementById("pesan").value.trim();
 
-  // Email tujuan
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = "Menyimpan & Membuka Gmail...";
+
+  const dataKirim = new URLSearchParams({
+    nama: nama,
+    alamat: alamat,
+    handphone: handphone,
+    layanan: layanan,
+    pesan: pesan
+  });
+
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors",
+    keepalive: true,
+    body: dataKirim
+  }).catch((err) => console.error("Gagal merekam ke Spreadsheet:", err));
+
   const emailTujuan = "bumdesaamanahsembawa@gmail.com";
-
-  // Format subject dan isi pesan
   const subject = encodeURIComponent(`Pesan Layanan dari: ${nama} - ${layanan}`);
-  const body = encodeURIComponent(`Nama Lengkap: ${nama}\nAlamat: ${alamat}\nLayanan yang Dipilih: ${layanan}\n\nPesan:\n${pesan}`);
+  const body = encodeURIComponent(
+    `Nama Lengkap: ${nama}\nAlamat: ${alamat}\nNomor Handphone: ${handphone}\nLayanan yang Dipilih: ${layanan}\n\nPesan:\n${pesan}`
+  );
 
-  // Link khusus untuk langsung membuka halaman "Compose" (Tulis Pesan) di Gmail
   const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTujuan}&su=${subject}&body=${body}`;
+  window.open(gmailWebLink, "_blank");
 
-  // Buka halaman web Gmail di tab browser baru
-  window.open(gmailWebLink, '_blank');
+  form.reset();
+  setTimeout(() => {
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = teksAsliBtn;
+  }, 1500);
 });
